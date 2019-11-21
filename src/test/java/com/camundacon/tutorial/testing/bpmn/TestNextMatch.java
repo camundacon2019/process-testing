@@ -59,8 +59,8 @@ import com.camundacon.tutorial.testing.delegate.SendWhatsappDelegate;
 /**
  * Tests the "next_match.bpmn", "plan_event_ride.bpmn", and "cancel_booking.bpmn"
  */
-@Deployment(resources = { "next_match.bpmn", "plan_event_ride.bpmn", "cancel_booking.bpmn" })
 @RunWith(MockitoJUnitRunner.class) // initializes all necessary @Mock fields
+@Deployment(resources = { "next_match.bpmn", "plan_event_ride.bpmn", "cancel_booking.bpmn" })
 public class TestNextMatch {
 
   private static final String PROCESS_KEY = "organize_next_match_visit";
@@ -444,9 +444,12 @@ public class TestNextMatch {
     // when
     taskService.complete(task.getId());
     // then
-    assertThat(calledProcessInstanceQuery.count()).isEqualTo(0L);
     assertThat(historyService.createHistoricProcessInstanceQuery()
         .processInstanceId(calledProcessInstance.getId())
+        .completed()
+        .count()).isEqualTo(1L);
+    assertThat(historyService.createHistoricProcessInstanceQuery()
+        .processInstanceId(instance.getId())
         .completed()
         .count()).isEqualTo(1L);
   }
@@ -468,6 +471,9 @@ public class TestNextMatch {
     // then
     assertThat(calledProcessInstance)
       .isEnded();
+    assertThat(instance)
+    .hasPassedInOrder("plan_event_ride_ca", "end_go_team")
+    .isEnded();
   }
 
   // --------------------------

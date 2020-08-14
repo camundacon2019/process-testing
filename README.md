@@ -3,6 +3,7 @@ CamundaCon 2019 Process Testing Example
 
 Code examples for testing complex aspects of processes using Camunda BPM.
 
+
 How to use it
 -----------------------------
 
@@ -13,3 +14,9 @@ How to use it
 5. Inspect the visual test results in `target/process-test-coverage/`
 6. Deploy it to a camunda-bpm-platform distro of your own choice, that supports EJB's (Wildfly, Jboss)
 7. Start an instance of the process `Organize next match visit` (process key `organize_next_match_visit`)
+
+Misc
+-----------------------------
+
+Feel free to watch the accompanying video:
+[![Watch the video](https://img.youtube.com/vi/gZF1kArXaa8/maxresdefault.jpg)](https://youtu.be/gZF1kArXaa8)

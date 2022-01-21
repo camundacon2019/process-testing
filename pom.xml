@@ -17,7 +17,7 @@
     <version.mockito>2.24.5</version.mockito>
     <version.powermock>2.0.0</version.powermock>
     <version.junit>4.12</version.junit>
-    <version.h2>1.4.197</version.h2>
+    <version.h2>2.1.210</version.h2>
     <version.slf4j>1.7.25</version.slf4j>
     <version.guava>18.0</version.guava>
     <version.commons-lang3>3.1</version.commons-lang3>
